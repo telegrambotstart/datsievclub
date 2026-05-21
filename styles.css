@@ -175,6 +175,10 @@ img {
   width: min(1100px, 100%);
 }
 
+.hero-intro {
+  display: block;
+}
+
 .hero-content h1,
 .hero-copy,
 .benefit-line {
@@ -677,9 +681,42 @@ h1 {
   }
 
   .hero-section {
-    min-height: 92svh;
-    padding-top: 104px;
+    min-height: auto;
+    align-items: start;
+    padding-top: 0;
     padding-bottom: 92px;
+    background: var(--bg);
+  }
+
+  .hero-section::before {
+    content: none;
+  }
+
+  .hero-intro {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin-right: calc(var(--page-x) * -1);
+    margin-left: calc(var(--page-x) * -1);
+    padding: 104px var(--page-x) 28px;
+  }
+
+  .hero-intro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.34) 52%, rgba(0, 0, 0, 0.68) 100%),
+      linear-gradient(180deg, rgba(5, 5, 5, 0.3) 0%, rgba(5, 5, 5, 0.08) 52%, rgba(5, 5, 5, 0.86) 100%);
+  }
+
+  .hero-intro .hero-media {
+    z-index: -2;
+  }
+
+  .hero-facts {
+    margin-top: 28px;
   }
 
   .hero-actions,
